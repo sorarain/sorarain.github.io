@@ -89,7 +89,7 @@
 <meta property="og:image" content="https://res.cloudinary.com/sorarain/image/upload/v1586702522/6I4E8U_BMSD1IU_L_SR_EBS_tepddu.png">
 <meta property="og:image" content="https://res.cloudinary.com/sorarain/image/upload/v1586702520/QGOFI3WT_XHUZ_395_FG_R_rjruzb.png">
 <meta property="article:published_time" content="2020-04-12T13:50:58.000Z">
-<meta property="article:modified_time" content="2020-04-12T15:23:52.250Z">
+<meta property="article:modified_time" content="2020-04-12T16:03:51.932Z">
 <meta property="article:author" content="hyb_sora">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://res.cloudinary.com/sorarain/image/upload/v1586702522/VK_K628X4CKR_NE_6MQNF6_m7a5bg.png">
@@ -346,18 +346,15 @@
 <hr>
 <h4 id="一、前置技能——棋盘局势的评价"><a href="#一、前置技能——棋盘局势的评价" class="headerlink" title="一、前置技能——棋盘局势的评价"></a>一、前置技能——棋盘局势的评价</h4><h5 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h5><p>在这个搜索中不管我们做什么优化，我们首先应该想到一个问题：怎样去衡量我们下的棋的好坏，也就是说怎么用数值评估我们的棋盘对我们有利还是对对方有利<span class="heimu" title="you know too much"> 这其实和数学建模有很大关系</span></p>
 <h5 id="正式引入"><a href="#正式引入" class="headerlink" title="正式引入"></a>正式引入</h5><p>在这个游戏中肯定连子越多越好，例如三子相连肯定比二子相连要好，但是还有一点应该考虑，那就是不同的三子相连的得分是有差异的如下</p>
-<img src="https://res.cloudinary.com/sorarain/image/upload/v1586702522/VK_K628X4CKR_NE_6MQNF6_m7a5bg.png">
-
+<p><img src="https://res.cloudinary.com/sorarain/image/upload/v1586702522/VK_K628X4CKR_NE_6MQNF6_m7a5bg.png"></p>
 <p>图一</p>
-<img src="https://res.cloudinary.com/sorarain/image/upload/v1586702522/6I4E8U_BMSD1IU_L_SR_EBS_tepddu.png">
-
+<p><img src="https://res.cloudinary.com/sorarain/image/upload/v1586702522/6I4E8U_BMSD1IU_L_SR_EBS_tepddu.png"></p>
 <p>图二</p>
-<img src="https://res.cloudinary.com/sorarain/image/upload/v1586702520/QGOFI3WT_XHUZ_395_FG_R_rjruzb.png">
-
+<p><img src="https://res.cloudinary.com/sorarain/image/upload/v1586702520/QGOFI3WT_XHUZ_395_FG_R_rjruzb.png"></p>
 <p>图三</p>
 <p>从上到下我们可以发现第一个的价值应该是最大的（最可能形成4子），第二个较小，而第三个就没什么用了（笑）。因此在设定权值的时候第一个和第二个应该在数值上有着显著的差别<span class="heimu" title="you know too much">我的建议是20倍，出问题了别打我</span><br>方便起见我们将两边都没有落对方子的称为活，有一边落对方子的称为死（两边都落的不予考虑，权值当成0），因此上面的图一图二分别称为活三，死三。类似的还有活四，死二等</p>
-<h5 id="权值设定"><a href="#权值设定" class="headerlink" title="权值设定"></a>权值设定</h5><p>我的设定是同子下活的权值是死的若干倍，不同子下也相差和前面相同的倍数（例如以10倍为例如果活三是100，则活二就是10，活四就是1000，死三就是10）<br>这部分代码先不放了<span class="heimu" title="you know too much">我写的和我的思路。。。有亿点不同（逃</span></p>
-<h5 id="局势评分"><a href="#局势评分" class="headerlink" title="局势评分"></a>局势评分</h5><p>现在假定我们已经可以给局势评分了<del>？？？我不会，(╯‵□′)╯︵┻━┻</del></p>
+<h5 id="权值设定"><a href="#权值设定" class="headerlink" title="权值设定"></a>权值设定</h5><p>我的设定是同子下活的权值是死的若干倍，不同子下也相差和前面相同的倍数（例如以10倍为例如果活三是100，则活二就是10，活四就是1000，死三就是10）<br>这部分代码先不放了<span class="heimu" title="you know too much">我写的和我的思路。。。有亿点不同（逃</span><br>那么由于我们要判断活四的情况，所以我们需要知道连续六个点的棋子情况，因此我们可以用一个六元组来记录不同棋型对应的分数（对就是6维数组）这里要注意有的人会开$ 2^6 $</p>
+<h5 id="局势评分"><a href="#局势评分" class="headerlink" title="局势评分"></a>局势评分</h5><p>现在假定我们已经可以给棋型评分了<del>？？？我不会，(╯‵□′)╯︵┻━┻</del></p>
 
       
     </div>
@@ -711,6 +708,28 @@
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
 
   
 
