@@ -268,6 +268,129 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/12/%E4%BA%94%E5%AD%90%E6%A3%8BAI%E8%90%8C%E6%96%B0%E5%85%A5%E9%97%A8%EF%BC%88%E4%BA%8C%EF%BC%89%E5%8D%9A%E5%BC%88%E6%A0%91%E4%B8%8Ealpha-beta%E5%89%AA%E6%9E%9D%E2%80%9C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="hyb_sora">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="coding life">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/04/12/%E4%BA%94%E5%AD%90%E6%A3%8BAI%E8%90%8C%E6%96%B0%E5%85%A5%E9%97%A8%EF%BC%88%E4%BA%8C%EF%BC%89%E5%8D%9A%E5%BC%88%E6%A0%91%E4%B8%8Ealpha-beta%E5%89%AA%E6%9E%9D%E2%80%9C/" itemprop="url">五子棋AI萌新入门（二）博弈树与alpha-beta剪枝“</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-12T21:50:58+08:00">
+                2020-04-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="序"><a href="#序" class="headerlink" title="序"></a>序</h4><p>在五子棋的人机博弈中，我们最先想到的算法便是搜索（在这里是博弈树搜索），但是显然如果强行暴力搜索的话，大概4层后我们的空间和时间便不允许了，因此我们需要优化——剪枝</p>
+<hr>
+<h4 id="一、前置技能——棋盘局势的评价"><a href="#一、前置技能——棋盘局势的评价" class="headerlink" title="一、前置技能——棋盘局势的评价"></a>一、前置技能——棋盘局势的评价</h4><h5 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h5><p>在这个搜索中不管我们做什么优化，我们首先应该想到一个问题：怎样去衡量我们下的棋的好坏，也就是说怎么用数值评估我们的棋盘对我们有利还是对对方有利<span class="heimu" title="you know too much"> 这其实和数学建模有很大关系</span></p>
+<h5 id="正式引入"><a href="#正式引入" class="headerlink" title="正式引入"></a>正式引入</h5><p>在这个游戏中肯定连子越多越好，例如三子相连肯定比二子相连要好，但是还有一点应该考虑，那就是不同的三子相连的得分是有差异的如下<br><a href="https://res.cloudinary.com/sorarain/image/upload/v1586701920/J_H_TN_7_MK_5EUO7SL19B_dy3jvf.png" target="_blank" rel="noopener">https://res.cloudinary.com/sorarain/image/upload/v1586701920/J_H_TN_7_MK_5EUO7SL19B_dy3jvf.png</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/10/%E4%BA%94%E5%AD%90%E6%A3%8BAI%E8%90%8C%E6%96%B0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89-UI%E7%95%8C%E9%9D%A2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -679,7 +802,7 @@
               
                 <a href="/archives/%20%7C%7C%20archive">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
