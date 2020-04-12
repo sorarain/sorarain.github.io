@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="序在五子棋的人机博弈中，我们最先想到的算法便是搜索（在这里是博弈树搜索），但是显然如果强行暴力搜索的话，大概4层后我们的空间和时间便不允许了，因此我们需要优化——剪枝  一、前置技能——棋盘局势的评价引言在这个搜索中不管我们做什么优化，我们首先应该想到一个问题：怎样去衡量我们下的棋的好坏，也就是说怎么用数值评估我们的棋盘对我们有利还是对对方有利 这其实和数学建模有很大关系 正式引入在这个游戏中肯定">
+<meta name="description" content="序在五子棋的人机博弈中，我们最先想到的算法便是搜索（在这里是博弈树搜索），但是显然如果强行暴力搜索的话，大概4层后我们的空间和时间便不允许了，因此我们需要优化——剪枝  一、前置技能——棋盘局势的评价 引言在这个搜索中不管我们做什么优化，我们首先应该想到一个问题：怎样去衡量我们下的棋的好坏，也就是说怎么用数值评估我们的棋盘对我们有利还是对对方有利 这其实和数学建模有很大关系  正式引入在这个游戏中">
 <meta property="og:type" content="article">
-<meta property="og:title" content="五子棋AI萌新入门（二）博弈树与alpha-beta剪枝“">
+<meta property="og:title" content="五子棋AI萌新入门（二）博弈树与alpha-beta剪枝“ Part I">
 <meta property="og:url" content="http://yoursite.com/2020/04/12/%E4%BA%94%E5%AD%90%E6%A3%8BAI%E8%90%8C%E6%96%B0%E5%85%A5%E9%97%A8%EF%BC%88%E4%BA%8C%EF%BC%89%E5%8D%9A%E5%BC%88%E6%A0%91%E4%B8%8Ealpha-beta%E5%89%AA%E6%9E%9D%E2%80%9C/index.html">
 <meta property="og:site_name" content="coding life">
-<meta property="og:description" content="序在五子棋的人机博弈中，我们最先想到的算法便是搜索（在这里是博弈树搜索），但是显然如果强行暴力搜索的话，大概4层后我们的空间和时间便不允许了，因此我们需要优化——剪枝  一、前置技能——棋盘局势的评价引言在这个搜索中不管我们做什么优化，我们首先应该想到一个问题：怎样去衡量我们下的棋的好坏，也就是说怎么用数值评估我们的棋盘对我们有利还是对对方有利 这其实和数学建模有很大关系 正式引入在这个游戏中肯定">
+<meta property="og:description" content="序在五子棋的人机博弈中，我们最先想到的算法便是搜索（在这里是博弈树搜索），但是显然如果强行暴力搜索的话，大概4层后我们的空间和时间便不允许了，因此我们需要优化——剪枝  一、前置技能——棋盘局势的评价 引言在这个搜索中不管我们做什么优化，我们首先应该想到一个问题：怎样去衡量我们下的棋的好坏，也就是说怎么用数值评估我们的棋盘对我们有利还是对对方有利 这其实和数学建模有很大关系  正式引入在这个游戏中">
 <meta property="og:image" content="https://res.cloudinary.com/sorarain/image/upload/v1586702522/VK_K628X4CKR_NE_6MQNF6_m7a5bg.png">
 <meta property="og:image" content="https://res.cloudinary.com/sorarain/image/upload/v1586702522/6I4E8U_BMSD1IU_L_SR_EBS_tepddu.png">
 <meta property="og:image" content="https://res.cloudinary.com/sorarain/image/upload/v1586702520/QGOFI3WT_XHUZ_395_FG_R_rjruzb.png">
 <meta property="article:published_time" content="2020-04-12T13:50:58.000Z">
-<meta property="article:modified_time" content="2020-04-12T16:03:51.932Z">
+<meta property="article:modified_time" content="2020-04-12T16:21:05.410Z">
 <meta property="article:author" content="hyb_sora">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://res.cloudinary.com/sorarain/image/upload/v1586702522/VK_K628X4CKR_NE_6MQNF6_m7a5bg.png">
@@ -128,7 +128,7 @@
 
 
 
-  <title>五子棋AI萌新入门（二）博弈树与alpha-beta剪枝“ | coding life</title>
+  <title>五子棋AI萌新入门（二）博弈树与alpha-beta剪枝“ Part I | coding life</title>
   
 
 
@@ -292,7 +292,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">五子棋AI萌新入门（二）博弈树与alpha-beta剪枝“</h1>
+          <h1 class="post-title" itemprop="name headline">五子棋AI萌新入门（二）博弈树与alpha-beta剪枝“ Part I</h1>
         
 
         <div class="post-meta">
@@ -344,7 +344,9 @@
       
         <h4 id="序"><a href="#序" class="headerlink" title="序"></a>序</h4><p>在五子棋的人机博弈中，我们最先想到的算法便是搜索（在这里是博弈树搜索），但是显然如果强行暴力搜索的话，大概4层后我们的空间和时间便不允许了，因此我们需要优化——剪枝</p>
 <hr>
-<h4 id="一、前置技能——棋盘局势的评价"><a href="#一、前置技能——棋盘局势的评价" class="headerlink" title="一、前置技能——棋盘局势的评价"></a>一、前置技能——棋盘局势的评价</h4><h5 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h5><p>在这个搜索中不管我们做什么优化，我们首先应该想到一个问题：怎样去衡量我们下的棋的好坏，也就是说怎么用数值评估我们的棋盘对我们有利还是对对方有利<span class="heimu" title="you know too much"> 这其实和数学建模有很大关系</span></p>
+<h4 id="一、前置技能——棋盘局势的评价"><a href="#一、前置技能——棋盘局势的评价" class="headerlink" title="一、前置技能——棋盘局势的评价"></a>一、前置技能——棋盘局势的评价</h4><hr>
+<h5 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h5><p>在这个搜索中不管我们做什么优化，我们首先应该想到一个问题：怎样去衡量我们下的棋的好坏，也就是说怎么用数值评估我们的棋盘对我们有利还是对对方有利<span class="heimu" title="you know too much"> 这其实和数学建模有很大关系</span></p>
+<hr>
 <h5 id="正式引入"><a href="#正式引入" class="headerlink" title="正式引入"></a>正式引入</h5><p>在这个游戏中肯定连子越多越好，例如三子相连肯定比二子相连要好，但是还有一点应该考虑，那就是不同的三子相连的得分是有差异的如下</p>
 <p><img src="https://res.cloudinary.com/sorarain/image/upload/v1586702522/VK_K628X4CKR_NE_6MQNF6_m7a5bg.png"></p>
 <p>图一</p>
@@ -353,8 +355,14 @@
 <p><img src="https://res.cloudinary.com/sorarain/image/upload/v1586702520/QGOFI3WT_XHUZ_395_FG_R_rjruzb.png"></p>
 <p>图三</p>
 <p>从上到下我们可以发现第一个的价值应该是最大的（最可能形成4子），第二个较小，而第三个就没什么用了（笑）。因此在设定权值的时候第一个和第二个应该在数值上有着显著的差别<span class="heimu" title="you know too much">我的建议是20倍，出问题了别打我</span><br>方便起见我们将两边都没有落对方子的称为活，有一边落对方子的称为死（两边都落的不予考虑，权值当成0），因此上面的图一图二分别称为活三，死三。类似的还有活四，死二等</p>
-<h5 id="权值设定"><a href="#权值设定" class="headerlink" title="权值设定"></a>权值设定</h5><p>我的设定是同子下活的权值是死的若干倍，不同子下也相差和前面相同的倍数（例如以10倍为例如果活三是100，则活二就是10，活四就是1000，死三就是10）<br>这部分代码先不放了<span class="heimu" title="you know too much">我写的和我的思路。。。有亿点不同（逃</span><br>那么由于我们要判断活四的情况，所以我们需要知道连续六个点的棋子情况，因此我们可以用一个六元组来记录不同棋型对应的分数（对就是6维数组）这里要注意有的人会开$ 2^6 $</p>
-<h5 id="局势评分"><a href="#局势评分" class="headerlink" title="局势评分"></a>局势评分</h5><p>现在假定我们已经可以给棋型评分了<del>？？？我不会，(╯‵□′)╯︵┻━┻</del></p>
+<hr>
+<h5 id="权值设定"><a href="#权值设定" class="headerlink" title="权值设定"></a>权值设定</h5><p>我的设定是同子下活的权值是死的若干倍，不同子下也相差和前面相同的倍数（例如以10倍为例如果活三是100，则活二就是10，活四就是1000，死三就是10），我方的棋型分值为正，对方为负<br>另外注意！！！由于我们作为电脑是后手所以在同棋型的情况下我们（白棋）的分值应该比玩家（黑棋）的权值要小的多，显然嘛，都是活四的话对方先下那么玩家就赢了，这是对玩家有利的所以局面分值应该是小一些（尽量是负的）</p>
+<p>这部分代码先不放了<span class="heimu" title="you know too much">我写的和我的思路。。。有亿点不同（逃</span><br>那么由于我们要判断活四的情况，所以我们需要知道连续六个点的棋子情况，因此我们可以用一个六元组来记录不同棋型对应的分数（对就是6维数组）这里要注意有的人会开$ 2^6 $ 有的会开 $ 3^6 $（因为考虑了边界块）这可能会影响到下面的程序编写所以谨慎。</p>
+<hr>
+<h5 id="局势评分"><a href="#局势评分" class="headerlink" title="局势评分"></a>局势评分</h5><p>现在假定我们已经可以给棋型评分了<del>？？？我不会，(╯‵□′)╯︵┻━┻</del>那么现在给我们一个棋盘我们尝试用棋型来给他评分那么我们可以 得到一个最暴力的枚举，即既定每个点为我们棋型数组的第一维然后向八个方向扩展看看有没有我们想要的棋型<br>这里放一下代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#define WIN 1000000000</span><br><span class="line"></span><br><span class="line">ll chess_6_type[4][4][4][4][4][4];&#x2F;&#x2F;我用的是加上边界考虑的（不要在意为什么开4，空间够用 叉腰）</span><br><span class="line">struct boardStatus&#123;</span><br><span class="line">    ll status,score;&#x2F;&#x2F;status 局势的胜负，0，无法判定，1，电脑胜，2，玩家胜，score，局面分数</span><br><span class="line">&#125;;</span><br><span class="line">int dir[8][2] &#x3D; &#123;&#123;0,1&#125;,&#123;1,0&#125;,&#123;1,1&#125;,&#123;1,-1&#125;,&#123;-1,0&#125;,&#123;0,-1&#125;,</span><br><span class="line">&#123;-1,1&#125;,&#123;-1,-1&#125;&#125;;</span><br><span class="line"></span><br><span class="line">boardStatus evaluateBoard(int (&amp;board)[CHESS_HEIGHT][CHESS_LENGTH])</span><br><span class="line">&#123;</span><br><span class="line">    boardStatus evalutation;</span><br><span class="line">    int score &#x3D; 0, status &#x3D; 0;</span><br><span class="line"></span><br><span class="line">    for(int k &#x3D; 0;k &lt; 4;k++)&#x2F;&#x2F;这里只做4个方向是因为对称的另外4个方向一定会被统计</span><br><span class="line">    &#123;</span><br><span class="line">        for(int i &#x3D; 0;i &lt; CHESS_HEIGHT;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            for(int j &#x3D; 0;j &lt; CHESS_LENGTH;j++)</span><br><span class="line">            &#123;</span><br><span class="line">                int max_x &#x3D; i + dir[k][0] * 5,max_y &#x3D; j + dir[k][1] * 5, pre &#x3D; score;</span><br><span class="line">                if(max_x &lt; 0 || max_x &gt;&#x3D; CHESS_HEIGHT || max_y &lt; 0 || max_y &gt;&#x3D; CHESS_LENGTH) continue;</span><br><span class="line"></span><br><span class="line">                score +&#x3D; chess_6_type[board[i][j]][board[i + dir[k][0]][j + dir[k][1]]][board[i + dir[k][0] * 2][j + dir[k][1] * 2]][board[i + dir[k][0] * 3][j + dir[k][1] * 3]][board[i + dir[k][0] * 4][j + dir[k][1] * 4]][board[i + dir[k][0] * 5][j + dir[k][1] * 5]];</span><br><span class="line">                if(score - pre &#x3D;&#x3D; WIN)</span><br><span class="line">                &#123;</span><br><span class="line">                    status &#x3D; 1;</span><br><span class="line">                &#125;</span><br><span class="line">                else if(score - pre &#x3D;&#x3D; LOSE)</span><br><span class="line">                &#123;</span><br><span class="line">                    status &#x3D; 2;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    evalutation.score &#x3D; score;</span><br><span class="line">    evalutation.status &#x3D; status;</span><br><span class="line">    return evalutation;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<p>今天就先更到这吧，好累啊。</p>
 
       
     </div>
