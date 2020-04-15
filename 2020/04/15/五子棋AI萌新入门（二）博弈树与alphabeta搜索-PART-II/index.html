@@ -79,12 +79,14 @@
 
 
 
+<meta name="description" content="二、博弈树搜索与alphabeta剪枝博弈树搜索首先我们对一个棋局定义它的分数$ score $为在上节我们所计算出的局势评分 对于五子棋来说我们可以进行如下操作来进行AI的思考 1、枚举AI下的的位置（根据$score$得到的棋局的分数越大搜索的顺序越靠前）2、枚举对手（玩家）可能下的位置（与上面的相反，分数越小搜索的顺序越靠前） 我们不断进行上述操作直到能分出胜负为止。 显然这样搞我们要出大问">
 <meta property="og:type" content="article">
-<meta property="og:title" content="你好，Hexo">
-<meta property="og:url" content="http://yoursite.com/2020/04/10/%E4%BD%A0%E5%A5%BD%EF%BC%8CHexo/index.html">
+<meta property="og:title" content="五子棋AI萌新入门（二）博弈树与alpha-beta剪枝 PART II">
+<meta property="og:url" content="http://yoursite.com/2020/04/15/%E4%BA%94%E5%AD%90%E6%A3%8BAI%E8%90%8C%E6%96%B0%E5%85%A5%E9%97%A8%EF%BC%88%E4%BA%8C%EF%BC%89%E5%8D%9A%E5%BC%88%E6%A0%91%E4%B8%8Ealphabeta%E6%90%9C%E7%B4%A2-PART-II/index.html">
 <meta property="og:site_name" content="coding life">
-<meta property="article:published_time" content="2020-04-10T03:49:31.000Z">
-<meta property="article:modified_time" content="2020-04-10T14:44:55.946Z">
+<meta property="og:description" content="二、博弈树搜索与alphabeta剪枝博弈树搜索首先我们对一个棋局定义它的分数$ score $为在上节我们所计算出的局势评分 对于五子棋来说我们可以进行如下操作来进行AI的思考 1、枚举AI下的的位置（根据$score$得到的棋局的分数越大搜索的顺序越靠前）2、枚举对手（玩家）可能下的位置（与上面的相反，分数越小搜索的顺序越靠前） 我们不断进行上述操作直到能分出胜负为止。 显然这样搞我们要出大问">
+<meta property="article:published_time" content="2020-04-15T01:04:08.000Z">
+<meta property="article:modified_time" content="2020-04-15T01:31:40.559Z">
 <meta property="article:author" content="hyb_sora">
 <meta name="twitter:card" content="summary">
 
@@ -116,13 +118,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2020/04/10/你好，Hexo/"/>
+  <link rel="canonical" href="http://yoursite.com/2020/04/15/五子棋AI萌新入门（二）博弈树与alphabeta搜索-PART-II/"/>
 
 
 
 
 
-  <title>你好，Hexo | coding life</title>
+  <title>五子棋AI萌新入门（二）博弈树与alpha-beta剪枝 PART II | coding life</title>
   
 
 
@@ -269,7 +271,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/10/%E4%BD%A0%E5%A5%BD%EF%BC%8CHexo/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/15/%E4%BA%94%E5%AD%90%E6%A3%8BAI%E8%90%8C%E6%96%B0%E5%85%A5%E9%97%A8%EF%BC%88%E4%BA%8C%EF%BC%89%E5%8D%9A%E5%BC%88%E6%A0%91%E4%B8%8Ealphabeta%E6%90%9C%E7%B4%A2-PART-II/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="hyb_sora">
@@ -286,7 +288,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">你好，Hexo</h1>
+          <h1 class="post-title" itemprop="name headline">五子棋AI萌新入门（二）博弈树与alpha-beta剪枝 PART II</h1>
         
 
         <div class="post-meta">
@@ -298,8 +300,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-10T11:49:31+08:00">
-                2020-04-10
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-15T09:04:08+08:00">
+                2020-04-15
               </time>
             
 
@@ -336,7 +338,15 @@
       
 
       
-        
+        <h4 id="二、博弈树搜索与alphabeta剪枝"><a href="#二、博弈树搜索与alphabeta剪枝" class="headerlink" title="二、博弈树搜索与alphabeta剪枝"></a>二、博弈树搜索与alphabeta剪枝</h4><h5 id="博弈树搜索"><a href="#博弈树搜索" class="headerlink" title="博弈树搜索"></a>博弈树搜索</h5><p>首先我们对一个棋局定义它的分数$ score $为在上节我们所计算出的局势评分</p>
+<p>对于五子棋来说我们可以进行如下操作来进行AI的思考</p>
+<p>1、枚举AI下的的位置（根据$score$得到的棋局的分数越大搜索的顺序越靠前）<br>2、枚举对手（玩家）可能下的位置（与上面的相反，分数越小搜索的顺序越靠前）</p>
+<p>我们不断进行上述操作直到能分出胜负为止。</p>
+<p>显然这样搞我们要出大问题（时间和空间都要爆炸）所以我们会自然的想到剪枝</p>
+<h5 id="正式讲讲剪枝"><a href="#正式讲讲剪枝" class="headerlink" title="正式讲讲剪枝"></a>正式讲讲剪枝</h5><p>首先我们假设下棋的双方都是理性人<del>不是憨憨</del>即都会按照最优策略进行，虽然我们都不知道最优策略是啥，但我们可以先这么假设<span class="heimu" title="you know too much">就和死宅<del>我</del>的npy一样虽然没有但是不妨碍我们假设它存在</span></p>
+<p>那么我们不妨这么去看我们的下棋过程：<br>显然我们暴力搜索到已经分出胜负的局面不太现实，所以我们只去搜索有限的深度，假定为$DEP_MAX$</p>
+<p>那么首先对于每一个在博弈树内的节点，我们考虑他的以搜索的叶子节点的分数（即到达最大深度的节点），我们设定这个节点当前能得到的棋盘的分数范围在$[alpha,beta]$那么我们想想如果我们是AI我们的目标一定是让分数尽可能变大那么我们应该<strong>让下界$alpha$尽可能变大</strong></p>
+
       
     </div>
     
@@ -360,8 +370,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/04/10/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/2020/04/12/%E4%BA%94%E5%AD%90%E6%A3%8BAI%E8%90%8C%E6%96%B0%E5%85%A5%E9%97%A8%EF%BC%88%E4%BA%8C%EF%BC%89%E5%8D%9A%E5%BC%88%E6%A0%91%E4%B8%8Ealpha-beta%E5%89%AA%E6%9E%9D%E2%80%9C/" rel="next" title="五子棋AI萌新入门（二）博弈树与alpha-beta剪枝 Part I">
+                <i class="fa fa-chevron-left"></i> 五子棋AI萌新入门（二）博弈树与alpha-beta剪枝 Part I
               </a>
             
           </div>
@@ -369,10 +379,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/04/10/%E4%BA%94%E5%AD%90%E6%A3%8BAI%E8%90%8C%E6%96%B0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89-UI%E7%95%8C%E9%9D%A2/" rel="prev" title="五子棋AI萌新入门（一） UI界面">
-                五子棋AI萌新入门（一） UI界面 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -424,8 +430,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -467,6 +482,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#二、博弈树搜索与alphabeta剪枝"><span class="nav-number">1.</span> <span class="nav-text">二、博弈树搜索与alphabeta剪枝</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#博弈树搜索"><span class="nav-number">1.1.</span> <span class="nav-text">博弈树搜索</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#正式讲讲剪枝"><span class="nav-number">1.2.</span> <span class="nav-text">正式讲讲剪枝</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
