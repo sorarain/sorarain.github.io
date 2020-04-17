@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="coding life">
 <meta property="og:description" content="二、博弈树搜索与alphabeta剪枝博弈树搜索首先我们对一个棋局定义它的分数$ score $为在上节我们所计算出的局势评分 对于五子棋来说我们可以进行如下操作来进行AI的思考 1、枚举AI下的的位置（根据$score$得到的棋局的分数越大搜索的顺序越靠前）2、枚举对手（玩家）可能下的位置（与上面的相反，分数越小搜索的顺序越靠前） 我们不断进行上述操作直到能分出胜负为止。 显然这样搞我们要出大问">
 <meta property="article:published_time" content="2020-04-15T01:04:08.000Z">
-<meta property="article:modified_time" content="2020-04-15T01:31:40.559Z">
+<meta property="article:modified_time" content="2020-04-15T06:58:46.356Z">
 <meta property="article:author" content="hyb_sora">
 <meta name="twitter:card" content="summary">
 
@@ -344,8 +344,9 @@
 <p>我们不断进行上述操作直到能分出胜负为止。</p>
 <p>显然这样搞我们要出大问题（时间和空间都要爆炸）所以我们会自然的想到剪枝</p>
 <h5 id="正式讲讲剪枝"><a href="#正式讲讲剪枝" class="headerlink" title="正式讲讲剪枝"></a>正式讲讲剪枝</h5><p>首先我们假设下棋的双方都是理性人<del>不是憨憨</del>即都会按照最优策略进行，虽然我们都不知道最优策略是啥，但我们可以先这么假设<span class="heimu" title="you know too much">就和死宅<del>我</del>的npy一样虽然没有但是不妨碍我们假设它存在</span></p>
-<p>那么我们不妨这么去看我们的下棋过程：<br>显然我们暴力搜索到已经分出胜负的局面不太现实，所以我们只去搜索有限的深度，假定为$DEP_MAX$</p>
-<p>那么首先对于每一个在博弈树内的节点，我们考虑他的以搜索的叶子节点的分数（即到达最大深度的节点），我们设定这个节点当前能得到的棋盘的分数范围在$[alpha,beta]$那么我们想想如果我们是AI我们的目标一定是让分数尽可能变大那么我们应该<strong>让下界$alpha$尽可能变大</strong></p>
+<p>那么我们不妨这么去看我们的下棋过程：<br>显然我们暴力搜索到已经分出胜负的局面不太现实，所以我们只去搜索有限的深度，假定为$DEPMAX$</p>
+<p>那么首先对于每一个在博弈树内的节点，我们考虑他的以搜索的叶子节点的分数（即到达最大深度的节点），我们设定这个节点当前能得到的棋盘的分数范围在$[alpha,beta]$那么我们想想如果我们是AI我们的目标一定是让分数尽可能变大那么我们应该<strong>让下界$alpha$尽可能变大</strong><br>原因在于如果$alpha$不变大，那么在我们下完这一步后对方一定会将棋局导向分数为alpha的棋局，因为这样对对方最有利，所以我们下的这步就没啥作用了<br>而对方一定会让beta变小，所以我们可以得到如下步骤：<br>如果是我们的回合：<br>1、搜索我们能走的所有步<br>2、得到走该步后得到的棋局能达到的分数的$alpha$下界<br>3、尝试更新我们的$alpha$<br>如果是对方的回合与上面相似，只是从用$alpha$更新下界变成用$beta$更新上界<br>那么哪里可以剪枝呢？我们思考如果$alpha &gt;= beta$就没有必要再搜索了（等号说明在我们搜索的范围内局势已经定死了分数不会变了，如果大于就矛盾了<del>下界怎么大于上界呀</del>)</p>
+<p>代码不想放了<del>太丑太长了怕被拍</del><br>挖个坑，算杀和迭代加深<span class="heimu" title="咕咕咕">在写了，一定更，不会鸽</span></p>
 
       
     </div>
@@ -455,7 +456,7 @@
               
                 <a href="/archives/%20%7C%7C%20archive">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
