@@ -43,7 +43,7 @@ Publications
 
 <table border="0">
  <tr>
-    <td> <img src="RoutePlacer.jpg"  style="zoom: 75%;" /> </td>
+    <td> <img src="./RoutePlacer.jpg"  style="zoom: 75%;" /> </td>
     <td> KDD 2024: RoutePlacer: An End-to-End Routability-Aware Placer with Graph Neural Network (First Author)  <a href=\"https://doi.org/10.1145/3637528.3671895\">paper</a>
       <a href=\"https://github.com/sorarain/RoutePlacer\">code</a>
   
