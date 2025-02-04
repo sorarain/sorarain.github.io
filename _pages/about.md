@@ -43,6 +43,7 @@ Publications
         <span class="inline-links">
             <a href="https://github.com/sorarain/TransPlace">code</a> / <a href="https://arxiv.org/abs/2501.05667">arxiv</a>
         </span>
+    </div>
     <p></p>
     <div class="paper-abstract">
         We introduce TransPlace, the first learning-based approach for global placement involving millions of mixed-size cells in the continuous space with two stages- Inductive Placement and Circuit-adaptive Fine-tuning.
@@ -64,6 +65,7 @@ Publications
         <span class="inline-links">
             <a href="https://github.com/sorarain/RoutePlacer">code</a> / <a href="https://doi.org/10.1145/3637528.3671895">paper</a>
         </span>
+      </div>
       <p></p>
     <div class="paper-abstract">
         We propose RoutePlacer to enable end-to-end routability optimization and improve two-stage placers in a plug-and-play manner. It trains RouteGNN, a customized graph neural network, to efficiently predict routability. Well-trained RouteGNN then serves as a differentiable approximation of routability, enabling end-to-end gradient-based routability optimization.
