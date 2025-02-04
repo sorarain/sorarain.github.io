@@ -33,7 +33,7 @@ Publications
 
 <table border="0">
  <tr>
-    <td> <img src="TransPlace.jpg"  style="zoom: 55%;" /> </td>
+    <td> <img src="https://sorarain.github.io/_pages/TransPlace.jpg"  style="zoom: 55%;" /> </td>
     <td> KDD 2025: TransPlace: Transferable Circuit Global Placement via Graph Neural Network (First Author)  <a href=\"https://arxiv.org/abs/2501.05667\">arxiv</a>
       <a href=\"https://github.com/sorarain/TransPlace\">code</a>
   
@@ -44,10 +44,20 @@ Publications
 <table border="0">
  <tr>
     <td> <img src="https://sorarain.github.io/_pages/RoutePlacer.jpg"  style="zoom: 75%;" /> </td>
-    <td> KDD 2024: RoutePlacer: An End-to-End Routability-Aware Placer with Graph Neural Network (First Author)  <a href=\"https://doi.org/10.1145/3637528.3671895\">paper</a>
-      <a href=\"https://github.com/sorarain/RoutePlacer\">code</a>
+    <td> 
+    <!-- KDD 2024: RoutePlacer: An End-to-End Routability-Aware Placer with Graph Neural Network (First Author)  <a href=\"https://doi.org/10.1145/3637528.3671895\">paper</a> -->
+      <!-- <a href=\"https://github.com/sorarain/RoutePlacer\">code</a> -->
   
-  We propose RoutePlacer to enable end-to-end routability optimization and improve two-stage placers in a plug-and-play manner. It trains RouteGNN, a customized graph neural network, to efficiently predict routability. Well-trained RouteGNN then serves as a differentiable approximation of routability, enabling end-to-end gradient-based routability optimization. </td>
+  <!-- We propose RoutePlacer to enable end-to-end routability optimization and improve two-stage placers in a plug-and-play manner. It trains RouteGNN, a customized graph neural network, to efficiently predict routability. Well-trained RouteGNN then serves as a differentiable approximation of routability, enabling end-to-end gradient-based routability optimization.  -->
+  <div class="paper-entry">
+    <div class="paper-title">RoutePlacer: An End-to-End Routability-Aware Placer with Graph Neural Network</div>
+    <div class="paper-authors"><b>Yunbo Hou</b>, Haoran Ye, Yingxue Zhang, Siyuan Xu, Guojie Song</div>
+    <div class="paper-info">KDD, 2024 &nbsp;|&nbsp; <a href="https://doi.org/10.1145/3637528.3671895">paper</a></div>
+    <div class="paper-abstract">
+        We propose RoutePlacer to enable end-to-end routability optimization and improve two-stage placers in a plug-and-play manner. It trains RouteGNN, a customized graph neural network, to efficiently predict routability. Well-trained RouteGNN then serves as a differentiable approximation of routability, enabling end-to-end gradient-based routability optimization.
+    </div>
+</div>
+  </td>
  </tr>
 </table>
 
