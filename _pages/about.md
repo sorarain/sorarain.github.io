@@ -1,28 +1,65 @@
 ---
 permalink: /
-title: "Academic Pages is a ready-to-fork GitHub Pages template for academic personal websites"
+title: "Yunbo Hou"
 author_profile: true
 redirect_from: 
   - /about/
   - /about.html
 ---
 
-This is the front page of a website that is powered by the [Academic Pages template](https://github.com/academicpages/academicpages.github.io) and hosted on GitHub pages. [GitHub pages](https://pages.github.com) is a free service in which websites are built and hosted from code and data stored in a GitHub repository, automatically updating when a new commit is made to the repository. This template was forked from the [Minimal Mistakes Jekyll Theme](https://mmistakes.github.io/minimal-mistakes/) created by Michael Rose, and then extended to support the kinds of content that academics have: publications, talks, teaching, a portfolio, blog posts, and a dynamically-generated CV. You can fork [this template](https://github.com/academicpages/academicpages.github.io) right now, modify the configuration and markdown files, add your own PDFs and other content, and have your own site for free, with no ads!
 
-A data-driven personal website
-======
- such as [this one](https://github.com/academicpages/academicpages.github.io/blob/master/talkmap.ipynb) that analyzes metadata in pages about talks to display [a map of every location you've given a talk](https://academicpages.github.io/talkmap.html).
+_I'm looking for a Ph.D position in machine learning._
 
-Getting started
+
+Short Bio
 ======
 
-1. Check status by going to the repository settings, in the "GitHub pages" section
+I'm a second year master in Peking University, majoring in Artificial Intelligence. I'm under the supervision of of Guojie Song and Weiping Ling.
 
-Site-wide configuration
-------
-The main configuration file for the site is in the base directory in [_config.yml](https://github.com/academicpages/academicpages.github.io/blob/master/_config.yml), which defines the content in the sidebars and other site-wide features. You will need to replace the default variables with ones about yourself and your site's github repository. The configuration file for the top menu is in [_data/navigation.yml](https://github.com/academicpages/academicpages.github.io/blob/master/_data/navigation.yml). For example, if you don't have a portfolio or blog posts, you can remove those items from that navigation.yml file to remove them from the header. 
 
-Create content & metadata
+My primary research interests include congestion-aware placement, ML for placement and graph neural network.
+
+artificial intelligence at School of Software and Microelectronics at 
+
+Education
+======
+
+- Sept. 2023 - June 2026: Ms. in School of Software and Microelectronics, Peking University
+- Sept. 2019 - June 2023: B.Sc. in School of Computer Science and Technology, University of Electronic and Science Technology of China (GPA 3.99/4.00, Ranked 1/65 in the major)
+
+Publications
+======
+
+
+<table border="0">
+ <tr>
+    <td> <img src="TransPlace.jpg"  style="zoom: 55%;" /> </td>
+    <td> KDD 2025: TransPlace: Transferable Circuit Global Placement via Graph Neural Network (First Author)  <a href=\"https://arxiv.org/abs/2501.05667\">arxiv</a>
+      <a href=\"https://github.com/sorarain/TransPlace\">code</a>
+  
+  We introduce TransPlace, the first learning-based approach for global placement involving millions of mixed-size cells in the continuous space with two stages- Inductive Placement and Circuit-adaptive Fine-tuning.</td>
+ </tr>
+</table>
+
+<table border="0">
+ <tr>
+    <td> <img src="RoutePlacer.jpg"  style="zoom: 75%;" /> </td>
+    <td> KDD 2024: RoutePlacer: An End-to-End Routability-Aware Placer with Graph Neural Network (First Author)  <a href=\"https://doi.org/10.1145/3637528.3671895\">paper</a>
+      <a href=\"https://github.com/sorarain/RoutePlacer\">code</a>
+  
+  We propose RoutePlacer to enable end-to-end routability optimization and improve two-stage placers in a plug-and-play manner. It trains RouteGNN, a customized graph neural network, to efficiently predict routability. Well-trained RouteGNN then serves as a differentiable approximation of routability, enabling end-to-end gradient-based routability optimization. </td>
+ </tr>
+</table>
+
+Honors and Awards
+======
+
+- Outstanding Undergraduate Thesis Award from University of Electronic Science and Technology of China
+- Blue Bridge Cup National Software and Information Technology Professional Talent Competition National Second Prize
+- Second Prize of Sichuan Province in the National College Student Mathematical Modeling Competition
+- Meritorious Award in the American College Student Mathematical Modeling Competition
+
+<!-- Create content & metadata
 ------
 For site content, there is one markdown file for each type of content, which are stored in directories like _publications, _talks, _posts, _teaching, or _pages. For example, each talk is a markdown file in the [_talks directory](https://github.com/academicpages/academicpages.github.io/tree/master/_talks). At the top of each markdown file is structured data in YAML about the talk, which the theme will parse to do lots of cool stuff. The same structured data about a talk is used to generate the list of talks on the [Talks page](https://academicpages.github.io/talks), each [individual page](https://academicpages.github.io/talks/2012-03-01-talk-1) for specific talks, the talks section for the [CV page](https://academicpages.github.io/cv), and the [map of places you've given a talk](https://academicpages.github.io/talkmap.html) (if you run this [python file](https://github.com/academicpages/academicpages.github.io/blob/master/talkmap.py) or [Jupyter notebook](https://github.com/academicpages/academicpages.github.io/blob/master/talkmap.ipynb), which creates the HTML for the map based on the contents of the _talks directory).
 
@@ -40,4 +77,4 @@ Example: editing a markdown file for a talk
 
 For more info
 ------
-More info about configuring Academic Pages can be found in [the guide](https://academicpages.github.io/markdown/), the [growing wiki](https://github.com/academicpages/academicpages.github.io/wiki), and you can always [ask a question on GitHub](https://github.com/academicpages/academicpages.github.io/discussions). The [guides for the Minimal Mistakes theme](https://mmistakes.github.io/minimal-mistakes/docs/configuration/) (which this theme was forked from) might also be helpful.
+More info about configuring Academic Pages can be found in [the guide](https://academicpages.github.io/markdown/), the [growing wiki](https://github.com/academicpages/academicpages.github.io/wiki), and you can always [ask a question on GitHub](https://github.com/academicpages/academicpages.github.io/discussions). The [guides for the Minimal Mistakes theme](https://mmistakes.github.io/minimal-mistakes/docs/configuration/) (which this theme was forked from) might also be helpful. -->
