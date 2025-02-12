@@ -19,7 +19,7 @@ I'm a second year master in Peking University, majoring in Artificial Intelligen
 
 My primary research interests include congestion-aware placement, ML for placement and graph neural network.
 
-artificial intelligence at School of Software and Microelectronics at 
+<!-- artificial intelligence at School of Software and Microelectronics at  -->
 
 Education
 ======

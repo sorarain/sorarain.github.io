@@ -9,15 +9,22 @@ redirect_from:
 
 {% include base_path %}
 
+<div class="wordwrap">You can also find my <a href="http://academicpages.github.io/files/CV.pdf">CV</a> there.</div>
+
 Education
 ======
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
-* M.S. in Jekyll, GitHub University, 2014
-* B.S. in GitHub, GitHub University, 2012
+<!-- * Ph.D in Version Control Theory, GitHub University, 2018 (expected) -->
+* M.S. in Artificial Intelligence, Peking University, 2023--2026(expected)
+* B.S. in Artificial Intelligence, University of Electronic Science and Technology of China, 2019--2023
 
 Work experience
 ======
-* Spring 2024: Academic Pages Collaborator
+* Fall 2024: Alibaba Mama - Advertising Technology Department
+  <!-- * GitHub University -->
+  * Duties includes: Incorportate generative model into recommendation to caputure user history interest and improve the CTR performance
+  * Supervisor: Li He
+
+<!-- * Spring 2024: Academic Pages Collaborator
   * GitHub University
   * Duties includes: Updates and improvements to template
   * Supervisor: The Users
@@ -30,16 +37,16 @@ Work experience
 * Summer 2015: Research Assistant
   * GitHub University
   * Duties included: Tagging issues
-  * Supervisor: Professor Git
+  * Supervisor: Professor Git -->
   
-Skills
+<!-- Skills
 ======
 * Skill 1
 * Skill 2
   * Sub-skill 2.1
   * Sub-skill 2.2
   * Sub-skill 2.3
-* Skill 3
+* Skill 3 -->
 
 Publications
 ======
