@@ -5,7 +5,7 @@ category: conferences
 permalink: /publication/RoutePlacer
 excerpt: 'We propose RoutePlacer, a routability-aware circuit placement method. It parameterizes a congestion penalty with GNN and integrates the differentiable penalty term into the optimization objective.'
 date: 2024-08-24
-# venue: 'Journal 1'
+venue: 'KDD'
 slidesurl: 'http://academicpages.github.io/files/RoutePlacer_slides.pdf'
 paperurl: 'http://academicpages.github.io/files/RoutePlacer.pdf'
 citation: 'Yunbo Hou. (2025). &quot;RoutePlacer: An End-to-End Routability-Aware Placer with Graph Neural Network.&quot; <i>Barcelona, Spain</i>. 1085–1095.'

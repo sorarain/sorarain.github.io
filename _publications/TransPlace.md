@@ -5,7 +5,7 @@ category: conferences
 permalink: /publication/TransPlace
 excerpt: 'We introduce TransPlace, the first learning-based framework for large-scale global placement.'
 date: 2025-02-01
-# venue: 'Journal 1'
+venue: 'KDD'
 # slidesurl: 'http://academicpages.github.io/files/slides1.pdf'
 paperurl: 'http://academicpages.github.io/files/TransPlace.pdf'
 citation: 'Yunbo Hou. (2025). &quot;TransPlace: Transferable Circuit Global Placement via Graph Neural Network.&quot; <i>Toronto, Canada</i>.'
