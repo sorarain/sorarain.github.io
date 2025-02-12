@@ -9,7 +9,7 @@ redirect_from:
 
 {% include base_path %}
 
-<div class="wordwrap">You can also find my <a href="http://academicpages.github.io/files/CV.pdf" download="Yunbo_Hou_CV.pdf">CV</a> there.</div>
+<div class="wordwrap">You can also find my <a href="https://sorarain.github.io/files/CV.pdf" download="Yunbo_Hou_CV.pdf">CV</a> there.</div>
 
 Education
 ======
