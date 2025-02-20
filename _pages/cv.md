@@ -19,7 +19,7 @@ Education
 
 Work experience
 ======
-* Fall 2024: Alibaba Mama - Advertising Technology Department
+* Fall 2024: Alibaba - Advertising Technology Department
   <!-- * GitHub University -->
   * Duties includes: Incorporate generative model into the recommendation to capture user history interest and improve the CTR performance
   * Supervisor: Li He
