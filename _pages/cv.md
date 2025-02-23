@@ -14,8 +14,8 @@ redirect_from:
 Education
 ======
 <!-- * Ph.D in Version Control Theory, GitHub University, 2018 (expected) -->
-* M.S. in Computer Science, Peking University, 2023--2026(expected)
-* B.S. in Artificial Intelligence, University of Electronic Science and Technology of China, 2019--2023
+* M.S. in Computer Science, School of Software and Microelectronics, Peking University, 2023--2026(expected)
+* B.S. in Artificial Intelligence, School of Computer Science and Technology, University of Electronic Science and Technology of China, 2019--2023
 
 Work experience
 ======

@@ -26,8 +26,8 @@ My primary research interests include congestion-aware placement, ML for placeme
 Education
 ======
 
-- Sept. 2023 - June 2026: Ms. in School of Software and Microelectronics, Peking University
-- Sept. 2019 - June 2023: B.Sc. in School of Computer Science and Technology, University of Electronic and Science Technology of China (GPA 3.99/4.00, Ranked 1/65 in the major)
+- Sept. 2023 - June 2026: Ms. in Computer Science, School of Software and Microelectronics, Peking University
+- Sept. 2019 - June 2023: B.Sc. in Artificial Intelligence, School of Computer Science and Technology, University of Electronic and Science Technology of China (GPA 3.99/4.00, Ranked 1/65 in the major)
 
 Publications
 ======
