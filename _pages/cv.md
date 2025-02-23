@@ -19,9 +19,12 @@ Education
 
 Work experience
 ======
-* Fall 2024: Alibaba - Advertising Technology Department
+* Fall 2024 -- Spring 2025: Alibaba Mama - Advertising Technology Department, Research Intern
   <!-- * GitHub University -->
-  * Duties includes: Incorporate generative model into the recommendation to capture user history interest and improve the CTR performance
+  * Developed CausalRec, a novel sequential recommendation model integrating causal inference.
+  * Designed a causal discovery block and a CausalBooster to refine attention mechanisms, improving recommendation accuracy.
+  * Submitted CausalRec to KDD 2025 (Feb), currently under review.
+  * Currently working on optimizing and integrating CausalRec into the production pipeline
   * Supervisor: Li He
 
 <!-- * Spring 2024: Academic Pages Collaborator

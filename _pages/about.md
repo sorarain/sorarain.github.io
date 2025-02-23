@@ -14,7 +14,9 @@ _I'm looking for a Ph.D position in machine learning._
 Short Bio
 ======
 
-I'm a second-year master in Peking University, majoring in Computer Science. I'm under the supervision of <a href="http://scholar.google.com.hk/citations?user=a832IIMAAAAJ&hl=en">Guojie Song</a> and <a href="https://ieeexplore.ieee.org/author/37537046800">Weiping Ling</a> .
+I'm a second-year master in Peking University, majoring in Computer Science. I'm under the supervision of <a href="http://scholar.google.com.hk/citations?user=a832IIMAAAAJ&hl=en">Guojie Song</a> .
+
+<!-- and <a href="https://ieeexplore.ieee.org/author/37537046800">Weiping Ling</a>  -->
 
 
 My primary research interests include congestion-aware placement, ML for placement and graph neural network.
