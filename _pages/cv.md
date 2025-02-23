@@ -17,7 +17,7 @@ Education
 * M.S. in Computer Science, School of Software and Microelectronics, Peking University, 2023--2026(expected)
 * B.S. in Artificial Intelligence, School of Computer Science and Technology, University of Electronic Science and Technology of China, 2019--2023
 
-Work experience
+Internship Experience
 ======
 * Fall 2024 -- Spring 2025: Alibaba Mama - Advertising Technology Department, Research Intern
   <!-- * GitHub University -->
